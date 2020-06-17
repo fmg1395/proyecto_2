@@ -1,2 +1,72 @@
 
+body{
+    background-image: url("../images/fondo.jpg");
+    background-position: center center;
+    background-repeat: no-repeat; 
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #795b33 
+}
 
+.contenedor-form
+{
+    position: absolute;
+    top:200px;
+    left:900px;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #795b33;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+input[type=text]{
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label {
+  padding: 12px 80px 12px 0;
+  display: inline-block;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+input[type=submit] {
+  background-color: #8E8825;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+  margin: 5px;
+}
+
+.titulo
+{
+    background-color:#456186;
+    padding: 6px;
+    color: #aca070;
+}
