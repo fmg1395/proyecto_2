@@ -11,6 +11,13 @@
     </head>
     <body>
         <div id="wrapper">
+            <div id='barra-nav' class='barra-nav'>
+                <ul>
+                    <li><a href='index.jsp'>Inicio</a></li>
+                    <li><a href='#Registro'>Registrarse</a></li>
+                    <li><a href='#About'>About</a></li>
+                </ul>
+            </div>
             <div id = 'contenedor-form' class= 'contenedor-form'>
                 <div class='titulo'>
                     <label for="fname"><b>Registro de Cliente</b></label>
