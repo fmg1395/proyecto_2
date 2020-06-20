@@ -22,13 +22,13 @@
                 <div class='titulo'>
                     <label for="fname"><b>Registro de Cliente</b></label>
                 </div>
-                <form id="form_registro" action="servicios" accept-charset="UTF-8">
+                <form id="form_registro" accept-charset="UTF-8" onsubmit='return capturar_registro()'>
                     <div class="row">
                         <div class="col-25">
                             <label>Nombre: </label>
                         </div>
                         <div class="col-75">
-                            <input type='text' id='reg-name' name='reg-name' placeholder='Ingrese su nombre' autofocus>
+                            <input type='text' id='reg_name' name='reg_name' placeholder='Ingrese su nombre' autofocus>
                         </div>
                     </div>
                     <div class="row">
@@ -36,7 +36,15 @@
                             <label>Apellidos: </label>
                         </div>
                         <div class="col-75">
-                            <input type='text' id='reg-lastname' name='reg-lastname' placeholder='Ingrese sus apellidos'>
+                            <input type='text' id='reg_lastname' name='reg_lastname' placeholder='Ingrese sus apellidos'>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-25">
+                            <label>Usuario: </label>
+                        </div>
+                        <div class="col-75">
+                            <input type='text' id='reg_usr' name='reg_usr' placeholder='Ingrese un usuario'>
                         </div>
                     </div>
                     <div class="row">
@@ -44,7 +52,7 @@
                             <label>Cédula: </label>
                         </div>
                         <div class="col-75">
-                            <input type='text' id='reg-id' name='reg-id' placeholder='Ingrese su cédula' >
+                            <input type='text' id='reg_id' name='reg_id' placeholder='Ingrese su cédula' >
                         </div>
                     </div>
                     <div class="row">
@@ -52,7 +60,7 @@
                             <label>Dirección: </label>
                         </div>
                         <div class="col-75">
-                            <input type='text' id='reg-address' name='reg-address' placeholder='Ingrese su dirección' >
+                            <input type='text' id='reg_address' name='reg_address' placeholder='Ingrese su dirección' >
                         </div>
                     </div>
                     <div class="row">
@@ -60,11 +68,11 @@
                             <label>Teléfono: </label>
                         </div>
                         <div class="col-75">
-                            <input type='text' id='reg-phone' name='reg-phone' placeholder='Ingrese su telefono' >
+                            <input type='text' id='reg_phone' name='reg_phone' placeholder='Ingrese su telefono' >
                         </div>
                     </div>
                     <div class="row">
-                        <input type='submit' id='reg-btn' name='reg-btn' value='Registrarse'>
+                        <input type='submit' id='reg_btn' name='reg_btn' value='Registrarse'>
                     </div>
                 </form>
             </div>

@@ -24,20 +24,23 @@
                 </ul>
             </div>
             <div id='login-content' class='login-content'>
-                <div>
-                    <h1>Ingresar</h1>
-                </div>
-                <div>
-                    <input type='text' placeholder="Ingrese su usuario">
-                </div>
-                <div>
-                    <input type='text' placeholder="Ingrese su contraseña">
-                </div>
-                <div>
-                    <input type='submit' value='Ingresar'>
-                </div>
-                <div>
-                </div>
+                <form id='form_login' name='form_login' onsubmit='return captura_login()'>
+                    <div>
+                        <h1>Ingresar</h1>
+                    </div>
+                    <div>
+                        <input type='text' id='usr_login' placeholder="Ingrese su usuario">
+                    </div>
+                    <div>
+                        <input type='password' id='pass_login' placeholder="Ingrese su contraseña">
+                    </div>
+                    <div>
+                        <input type='submit' value='Ingresar'>
+                    </div>
+                    <div>
+                        <a href='registro.jsp'>Registrarse</a>
+                    </div>
+                </form>
             </div>
         </div>
     </body>
