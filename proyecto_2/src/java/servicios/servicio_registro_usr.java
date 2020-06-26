@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import modelo.Usuario;
+import modelo.dao.GestorUsuarios;
 
 @WebServlet(name = "servicio_registro_usr", urlPatterns = {"/servicio_registro_usr"})
 @MultipartConfig
@@ -28,8 +29,12 @@ public class servicio_registro_usr extends HttpServlet {
 
             Usuario usr = new Gson().fromJson(request.getParameter(n), Usuario.class);
 
-            // boolean insert = new GestorUsuario().CreateUsuario(usr);
-            r.addProperty("respuesta", "inicio.jsp");
+            boolean insert = new GestorUsuarios().CreateUser(usr);
+            if (insert) {
+                r.addProperty("respuesta", "inicio.jsp");
+            } else {
+                r.addProperty("respuesta", insert);
+            }
             out.println(r.toString());
         }
     }

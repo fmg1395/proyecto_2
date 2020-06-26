@@ -31,7 +31,7 @@ public class GestorUsuarios implements Serializable {
         return instancia;
     }
     // <editor-fold defaultstate="collapsed" desc="métodos">
-          public boolean CreateUser(Usuario newUser) throws SQLException {
+          public boolean CreateUser(Usuario newUser){
         boolean success = false;
         int updateRegisters = 0;
         try {
