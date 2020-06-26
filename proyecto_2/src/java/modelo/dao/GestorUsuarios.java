@@ -6,6 +6,7 @@
 package modelo.dao;
 
 import datos.BaseDatos;
+import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -19,7 +20,7 @@ import modelo.Usuario;
  *
  * @author Kike
  */
-public class GestorUsuarios {
+public class GestorUsuarios implements Serializable {
 
     public GestorUsuarios() {
         this.bd = BaseDatos.obtenerInstancia();
