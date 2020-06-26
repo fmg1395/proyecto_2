@@ -1,8 +1,11 @@
 package servicios;
 
+import com.google.gson.JsonObject;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Enumeration;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -13,14 +16,22 @@ import javax.servlet.http.HttpServletResponse;
  * @author frank
  */
 @WebServlet(name = "servicio_login", urlPatterns = {"/servicio_login"})
+@MultipartConfig
 public class servicio_login extends HttpServlet {
 
-   
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+        response.setContentType("application/json;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-         
+
+            JsonObject r = new JsonObject();
+
+            Enumeration<String> p = request.getParameterNames();
+            String n = p.nextElement();
+
+            r.addProperty("respuesta", "inicio.jsp");
+            out.println(r.toString());
+
         }
     }
 
