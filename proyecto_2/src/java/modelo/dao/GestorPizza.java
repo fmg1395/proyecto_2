@@ -34,7 +34,7 @@ public class GestorPizza implements Serializable {
         return instancia;
     }
 
-    // </editor-fold>
+   
     // <editor-fold defaultstate="collapsed" desc="métodos">
     public boolean CreatePizza(Pizza newPizza) throws SQLException {
         boolean success = false;
@@ -259,7 +259,8 @@ public class GestorPizza implements Serializable {
         return Type;
     }
     //FALTA CRUD EXTRAS
-    
+          // </editor-fold>
+
     // <editor-fold defaultstate="collapsed" desc="atributos BD">
     private static GestorPizza instancia = null;
     private BaseDatos bd = null;
