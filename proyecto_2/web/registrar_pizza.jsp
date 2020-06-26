@@ -6,7 +6,7 @@
         <link href="css/styles.css" rel="stylesheet" type="text/css"/>
         <script src="JavaScript/script.js" type="text/javascript"></script>
         <link rel="icon" type="image/png" href="images/fav-pizza.png"/>
-        <title>Registro Pizza</title>
+        <title>Registrar Pizza</title>
     </head>
     <body>
         <div id="wrapper">
