@@ -4,7 +4,7 @@ function captura_login()
     var pass = document.getElementById('pass_login').value;
     
     console.log(`Credenciales son usr: ${usr} pass: ${pass}`);
-    
+    window.location.href = "http://localhost:8084/proyecto_2/inicio.jsp";  
 }
 
 function capturar_registro()
