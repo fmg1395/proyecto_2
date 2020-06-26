@@ -13,61 +13,30 @@
             <div id='barra-nav' class='barra-nav'>
                 <ul>
                     <li><a href='index.jsp'>Inicio</a></li>
-                    <li><a href='#Registro'>Registrarse</a></li>
+                    <li><a href='registro.jsp'>Registrarse</a></li>
+                    <li><a href='registrar_pizza.jsp'>Registrar Pizza</a></li>
                     <li><a href='#About'>About</a></li>
                 </ul>
             </div>
             <div id = 'contenedor-form' class= 'contenedor-form'>
                 <div class='titulo'>
-                    <label for="fname"><b>Registro de Cliente</b></label>
+                    <label for="fname"><b>Registro de Nueva Pizza</b></label>
                 </div>
-                <form id="form_registro" accept-charset="UTF-8" onsubmit='return capturar_registro()'>
+                <form id="form_registro" accept-charset="UTF-8" onsubmit='return capturarPizza()'>
                     <div class="row">
                         <div class="col-25">
-                            <label>Nombre: </label>
+                            <label>Nombre de la pizza: </label>
                         </div>
                         <div class="col-75">
-                            <input type='text' id='reg_name' name='reg_name' placeholder='Ingrese su nombre' autofocus>
+                            <input type='text' id='reg_name_pizza' name='reg_name' placeholder='Ingrese nombre' autofocus>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-25">
-                            <label>Apellidos: </label>
+                            <label>Descripción </label>
                         </div>
                         <div class="col-75">
-                            <input type='text' id='reg_lastname' name='reg_lastname' placeholder='Ingrese sus apellidos'>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-25">
-                            <label>Usuario: </label>
-                        </div>
-                        <div class="col-75">
-                            <input type='text' id='reg_usr' name='reg_usr' placeholder='Ingrese un usuario'>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-25">
-                            <label>Cédula: </label>
-                        </div>
-                        <div class="col-75">
-                            <input type='text' id='reg_id' name='reg_id' placeholder='Ingrese su cédula' >
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-25">
-                            <label>Dirección: </label>
-                        </div>
-                        <div class="col-75">
-                            <input type='text' id='reg_address' name='reg_address' placeholder='Ingrese su dirección' >
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-25">
-                            <label>Teléfono: </label>
-                        </div>
-                        <div class="col-75">
-                            <input type='text' id='reg_phone' name='reg_phone' placeholder='Ingrese su telefono' >
+                            <input type='text' id='reg_des_pizza' name='reg_des_pizza' placeholder='Ingrese una descripción'>
                         </div>
                     </div>
                     <div class="row">

@@ -36,7 +36,7 @@ public class GestorPizza implements Serializable {
 
     // </editor-fold>
     // <editor-fold defaultstate="collapsed" desc="métodos">
-    public boolean CreatePizza(Pizza newPizza) throws SQLException {
+    public boolean CreatePizza(Pizza newPizza) {
         boolean success = false;
         int updateRegisters = 0;
         try {

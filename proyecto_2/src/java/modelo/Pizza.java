@@ -19,6 +19,7 @@ String descripcion;
     }
 
     public Pizza() {
+        this("","");
     }
 
     public String getNombre() {

@@ -22,6 +22,7 @@
                 <ul>
                     <li><a href='index.jsp'>Inicio</a></li>
                     <li><a href='registro.jsp'>Registrarse</a></li>
+                    <li><a href='registrar_pizza.jsp'>Registrar Pizza</a></li>
                     <li><a href='#About'>About</a></li>
                 </ul>
             </div>

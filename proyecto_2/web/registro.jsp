@@ -13,7 +13,8 @@
             <div id='barra-nav' class='barra-nav'>
                 <ul>
                     <li><a href='index.jsp'>Inicio</a></li>
-                    <li><a href='#Registro'>Registrarse</a></li>
+                    <li><a href='registro.jsp'>Registrarse</a></li>
+                    <li><a href='registrar_pizza.jsp'>Registrar Pizza</a></li>
                     <li><a href='#About'>About</a></li>
                 </ul>
             </div>
@@ -40,18 +41,18 @@
                     </div>
                     <div class="row">
                         <div class="col-25">
-                            <label>Usuario: </label>
-                        </div>
-                        <div class="col-75">
-                            <input type='text' id='reg_usr' name='reg_usr' placeholder='Ingrese un usuario'>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-25">
                             <label>Cédula: </label>
                         </div>
                         <div class="col-75">
                             <input type='text' id='reg_id' name='reg_id' placeholder='Ingrese su cédula' >
+                        </div>
+                    </div>
+                     <div class="row">
+                        <div class="col-25">
+                            <label>Constraseña: </label>
+                        </div>
+                        <div class="col-75">
+                            <input type='password' id='reg_pass' name='reg_pass' placeholder='Ingrese una contraseña' >
                         </div>
                     </div>
                     <div class="row">
