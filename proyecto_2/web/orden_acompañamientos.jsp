@@ -1,12 +1,13 @@
 <%-- 
-    Document   : orden_pizza
-    Created on : 26 jun. 2020, 17:54:04
+    Document   : orden_acompañamientos
+    Created on : 26 jun. 2020, 21:17:10
     Author     : Kike
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+  <html>
     <head>
         <link href="css/styles.css" rel="stylesheet" type="text/css"/>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -16,7 +17,7 @@
     </head>
     <body>
        <div id='wrapper'>
-            <h1>Ordenar pizza</h1>
+            <h1>Ordenar acompañamientos</h1>
             <div id='barra-nav' class='barra-nav'>
                 <ul>
                     <li><a href='index.jsp'>Inicio</a></li>
@@ -30,9 +31,7 @@
                     <table class="tablaGeneral">
                         <thead>
                             <tr>
-                                <th style="width: 60px;">Pizza</th>
-                                <th style="width: 180px;">Descripción</th>
-                                <th style="width: 90px;">Tamaño</th>
+                                <th style="width: 60px;">Extra</th>
                                 <th style="width: 90px;">Precio</th>
                                 <th style="width: 90px;">Cantidad</th>
                                 <th style="width: 120px;">Total</th>
@@ -43,14 +42,14 @@
                         <tfoot>
                             <tr>
                                 <td>&nbsp;</td>
-                                <td colspan="5" class="c2b">Total general:</td>
+                                <td colspan="3" class="c2b">Total general:</td>
                                 <td id="totalGeneral" class="c2c" />
                             </tr>
                         </tfoot>
                     </table>
                 </section>
             </div>
-            <button type="button" class="trans" onclick="recuperarDatosPizza()"><span>Siguiente</span></button>
+            <button type="button" class="trans" onclick="recuperarDatosExtras()"><span>Siguiente</span></button>
         </div>
     </body>
 </html>
