@@ -1,5 +1,6 @@
 package servicios;
 
+import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -10,6 +11,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelo.Pizza;
+import modelo.Usuario;
+import modelo.dao.GestorUsuarios;
 
 /**
  *
@@ -25,12 +29,19 @@ public class servicio_login extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
 
             JsonObject r = new JsonObject();
-
             Enumeration<String> p = request.getParameterNames();
             String n = p.nextElement();
-
-            r.addProperty("respuesta", "inicio.jsp");
-            out.println(r.toString());
+            
+            Usuario usr = new Gson().fromJson(request.getParameter(n), Usuario.class);
+            Usuario usr2 = new GestorUsuarios().QueryUser(usr.getCedula());
+            
+            if (usr2.getPass().equals(usr.getPass())) {
+                r.addProperty("respuesta", "inicio.jsp");
+                out.println(r.toString());
+            } else {
+                r.addProperty("respuesta", "index.jsp");
+                out.println(r.toString());
+            }
 
         }
     }

@@ -39,6 +39,7 @@
                         <input type='submit' value='Ingresar'>
                     </div>
                     <div>
+                        <a href="cambio_pass.jsp">¿Olvidaste tu contraseña?</a>
                         <a href='registro.jsp'>Registrarse</a>
                     </div>
                 </form>

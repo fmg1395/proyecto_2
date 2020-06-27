@@ -82,7 +82,7 @@ public class GestorUsuarios implements Serializable {
         return users;
     }
 
-    public boolean updateUser(Usuario user) throws SQLException {
+    public boolean updateUser(Usuario user){
         boolean success = false;
         int updateRegisters = 0;
         try {
@@ -127,7 +127,8 @@ public class GestorUsuarios implements Serializable {
         return success;
     }
 
-    public Usuario QueryUser(String id) throws SQLException {
+    public Usuario QueryUser(String id){
+
         Usuario user = null;
         try {
             Connection cnx = bd.obtenerConexion();

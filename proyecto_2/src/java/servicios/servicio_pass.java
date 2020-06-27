@@ -14,29 +14,35 @@ import javax.servlet.http.HttpServletResponse;
 import modelo.Usuario;
 import modelo.dao.GestorUsuarios;
 
-@WebServlet(name = "servicio_registro_usr", urlPatterns = {"/servicio_registro_usr"})
+@WebServlet(name = "servicio_pass", urlPatterns = {"/servicio_pass"})
 @MultipartConfig
-public class servicio_registro_usr extends HttpServlet {
+public class servicio_pass extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("application/json;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
 
+            GestorUsuarios gestor = new GestorUsuarios();
             JsonObject r = new JsonObject();
             Enumeration<String> p = request.getParameterNames();
             String n = p.nextElement();
 
             Usuario usr = new Gson().fromJson(request.getParameter(n), Usuario.class);
-            usr.setTipo('C');
+            String pass = usr.getPass();
+            usr = gestor.QueryUser(usr.getCedula());
+            usr.setPass(pass);
 
-            boolean insert = new GestorUsuarios().CreateUser(usr);
-            if (insert) {
+            boolean update = gestor.updateUser(usr);
+
+            if (update) {
                 r.addProperty("respuesta", "inicio.jsp");
+                out.println(r.toString());
             } else {
-                r.addProperty("respuesta", insert);
+                r.addProperty("respuesta", "cambio_pass.jsp");
+                out.println(r.toString());
             }
-            out.println(r.toString());
+
         }
     }
 

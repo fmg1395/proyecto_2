@@ -3,7 +3,7 @@ function captura_login()
     var usr = document.getElementById('usr_login').value;
     var pass = document.getElementById('pass_login').value;
     var dato = {
-        'usuario': usr,
+        'cedula': usr,
         'pass': pass
     };
     var usuario = new FormData();
@@ -20,7 +20,8 @@ function capturar_registro()
     var cedula = document.getElementById('reg_id').value;
     var direccion = document.getElementById('reg_address').value;
     var telefono = document.getElementById('reg_phone').value;
-    var pass = document.getElementById('reg_pass').value.toLowerCase();;
+    var pass = document.getElementById('reg_pass').value.toLowerCase();
+    ;
     var obj = {
         'nombre': nombre,
         'apellido': apellidos,
@@ -29,11 +30,11 @@ function capturar_registro()
         'telefono': telefono,
         'pass': pass
     };
-    
+
     let datos = new FormData();
-    datos.append('usuario',JSON.stringify(obj));
-    
-    enviarDatos('servicio_registro_usr',datos,redireccionar);
+    datos.append('usuario', JSON.stringify(obj));
+
+    enviarDatos('servicio_registro_usr', datos, redireccionar);
     return false;
 }
 
@@ -67,4 +68,29 @@ function enviarDatos(servicio, datos, callback)
 function redireccionar(url)
 {
     window.location.href = url.respuesta;
+}
+
+function cambioPass()
+{
+    let cedula = document.getElementById('chg_cedula').value;
+    let pass1 = document.getElementById('chg_pass').value;
+    let pass2 = document.getElementById('chg_conf_pass').value;
+
+    if (pass1 === pass2)
+    {
+        let obj = {
+            'cedula': cedula,
+            'pass': pass1
+        };
+        let datos = new FormData();
+        datos.append('pass', JSON.stringify(obj));
+
+        enviarDatos('servicio_pass', datos,redireccionar);
+        return false;
+    } else
+    {
+        let cedula = document.getElementById('chg_cedula').value = "";
+        let pass1 = document.getElementById('chg_pass').value = "";
+        let pass2 = document.getElementById('chg_conf_pass').value = "";
+    }
 }
