@@ -9,6 +9,7 @@ Integer id;
 String nombre;
 String descripcion;
     public Pizza(Integer id,String nombre, String descripcion) {
+        this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
     }
