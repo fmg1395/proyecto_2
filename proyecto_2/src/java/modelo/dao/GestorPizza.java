@@ -57,7 +57,7 @@ public class GestorPizza implements Serializable {
         return success;
     }
 
-    public List<Pizza> ReadPizza() throws SQLException {
+    public List<Pizza> ReadPizza(){
         List<Pizza> pizzas = new ArrayList<>();
         try {
             Connection cnx = bd.obtenerConexion();
