@@ -54,7 +54,36 @@ function capturarPizza()
     });
     return false;
 }
-
+function borrarPizza()
+{
+    let id=document.getElementById('del_name_pizza').value;
+    let obj={
+        'id':id
+    };
+    let datos=new FormData();
+    datos.append('pizza',JSON.stringify(obj));
+    enviarDatos('servicio_del_pizza',JSON.stringify(obj),(res)=>{
+        console.log(res);
+    });
+    return false;
+}
+function modificarPizza()
+{
+    let id=document.getElementById('upd_id_pizza').value;
+    let name=document.getElementById('upd_name_pizza').value;
+    let desc=document.getElementById('upd_des_pizza').value;
+    let obj={
+        'id':id,
+        'nombre': name,
+        'descripcion': desc
+    };
+    let datos=new FormData();
+    datos.append('pizza',JSON.stringify(obj));
+    enviarDatos('servicio_upd_pizza',JSON.stringify(obj),(res)=>{
+        console.log(res);
+    });
+    return false;
+}
 function enviarDatos(servicio, datos, callback)
 {
     fetch(servicio, {
