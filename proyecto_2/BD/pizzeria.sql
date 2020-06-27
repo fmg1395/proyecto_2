@@ -25,6 +25,7 @@ CREATE TABLE IF NOT EXISTS `pizzeria`.`usuario` (
   `direccion` VARCHAR(200) NOT NULL,
   `telefono` VARCHAR(15) NOT NULL,
   `contraseña` VARCHAR(15),
+  `rol` VARCHAR(1),
   PRIMARY KEY (`cedula`))
 ENGINE = InnoDB;
 

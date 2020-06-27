@@ -13,7 +13,8 @@ public enum IMEC_Usuario {
      INSERT("INSERT INTO `pizzeria`.`usuario`(`cedula`,`nombre`,`apellido`,"
              + "`direccion`,`telefono`,`contraseña`) values(?,?,?,?,?,?);"),
     READ("SELECT * from `pizzeria`.`usuario`;"),
-    UPDATE("UPDATE `pizzeria`.`usuario` SET `contraseña`=? where `cedula`=?;"),
+    UPDATE("UPDATE `pizzeria`.`usuario` SET `nombre`=?,`apellido=?`,"
+             + "`direccion`=?,`telefono`=?,`contraseña`=? where `cedula`=?;"),
     DELETE("DELETE FROM `pizzeria`.`usuario` where `cedula`=?;"),
     QUERY("SELECT * from `pizzeria`.`usuario` where `cedula`=?;");
 IMEC_Usuario(String comando)

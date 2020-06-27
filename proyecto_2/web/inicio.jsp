@@ -17,13 +17,13 @@
     </head>
     <body>
         <div id='wrapper'>
-            <h1 style='color:#00cc33'>Pagina de inicio</h1>
+            <h1>Pagina de inicio</h1>
             <div id='barra-nav' class='barra-nav'>
                 <ul>
                     <li><a href='index.jsp'>Inicio</a></li>
                     <li><a href='registro.jsp'>Registrarse</a></li>
                     <li><a href='registrar_pizza.jsp'>Registrar Pizza</a></li>
-                    <li><a href='#About'>About</a></li>
+                    <li><a href='orden_pizza.jsp'>Ordenar pizza</a></li>
                 </ul>
             </div>
         </div>

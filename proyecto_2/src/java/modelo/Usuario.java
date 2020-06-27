@@ -11,6 +11,7 @@ public class Usuario {
     private String direccion;
     private String telefono;
     private String pass;
+    private char tipo;//A: administrador, C: cliente
 
     public Usuario(String cedula, String nombre, String apellido, String direccion, String telefono, String pass) {
         this.cedula = cedula;
@@ -20,9 +21,25 @@ public class Usuario {
         this.telefono = telefono;
         this.pass = pass;
     }
-
+    public Usuario(String cedula, String nombre, String apellido, String direccion, String telefono, String pass,String tipo) {
+        this.cedula = cedula;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.direccion = direccion;
+        this.telefono = telefono;
+        this.pass = pass;
+        this.tipo=tipo.charAt(0);
+    }
     public Usuario() {
         this("","","","","","");
+    }
+
+    public char getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(char tipo) {
+        this.tipo = tipo;
     }
 
     public String getCedula() {
