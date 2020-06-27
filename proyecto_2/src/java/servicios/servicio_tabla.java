@@ -1,8 +1,6 @@
 package servicios;
 
-import com.google.gson.Gson;
 import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -47,8 +45,8 @@ public class servicio_tabla extends HttpServlet {
                 for(int j=0;j<tipos.size();j++)
                 {
                     JsonObject tipo = new JsonObject();
-                    tipo.addProperty("tamano", tipos.get(i).getTam());
-                    tipo.addProperty("precio", tipos.get(i).getPrecio());
+                    tipo.addProperty("tamano", tipos.get(j).getTam());
+                    tipo.addProperty("precio", tipos.get(j).getPrecio());
                     array_tipos.add(tipo);
                 }
                 pizza.add("tipos", array_tipos);
@@ -57,9 +55,6 @@ public class servicio_tabla extends HttpServlet {
             salida.add("lista", array_pizza);
 
             out.println(salida);
-        }catch(Exception ex)
-        {
-            System.err.printf("Problema tabla: %s",ex.getMessage());
         }
     }
 
