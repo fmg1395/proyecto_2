@@ -43,14 +43,14 @@
                         <tfoot>
                             <tr>
                                 <td>&nbsp;</td>
-                                <td colspan="4" class="c2b">Total general:</td>
+                                <td colspan="5" class="c2b">Total general:</td>
                                 <td id="totalGeneral" class="c2c" />
-                                <td><button type="button" onclick="recuperarDatos()">Facturar</button></td>
                             </tr>
                         </tfoot>
                     </table>
                 </section>
             </div>
+            <button type="button" class="trans" onclick="recuperarDatos()"><span>Siguiente</span></button>
         </div>
     </body>
 </html>
