@@ -34,6 +34,7 @@
                 <label for="pago">Efectivo</label><br>
                  <input type="radio" id="pago" name="modoPago" value="tarjeta">
                 <label for="pago">Tarjeta</label><br>
+                <button type="button" class="pagado" onclick="confirmarPago()"><span>Pedir</span></button>
         </div>
     </body>
 </html>

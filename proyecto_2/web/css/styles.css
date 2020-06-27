@@ -274,3 +274,7 @@ button:hover{
 #cuerpo label{
     font-size: 20px;
 }
+.pagado{
+    left:42%;
+    right:50%;
+}
