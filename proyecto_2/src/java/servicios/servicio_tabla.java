@@ -1,5 +1,8 @@
 package servicios;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -26,53 +29,52 @@ public class servicio_tabla extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("application/json;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            GestorPizza pizza = new GestorPizza();
-            
-            JsonObject jason = new JsonObject();
-            
-            
-            
-            
-            
-            
-          
+            GestorPizza gestor_pizza = new GestorPizza();
+            JsonArray array_pizza = new JsonArray();
+            JsonObject salida = new JsonObject();
+
+            List<Pizza> lista_pizza = gestor_pizza.ReadPizza();
+
+            for (int i = 0; i < lista_pizza.size(); i++) {
+                JsonObject pizza = new JsonObject();
+                pizza.addProperty("nombre", lista_pizza.get(i).getNombre());
+                pizza.addProperty("descripcion", lista_pizza.get(i).getDescripcion());
+
+                JsonArray array_tipos = new JsonArray();
+
+                List<TipoPizza> tipos = gestor_pizza.readType(lista_pizza.get(i).getId());
+                
+                for(int j=0;j<tipos.size();j++)
+                {
+                    JsonObject tipo = new JsonObject();
+                    tipo.addProperty("tamano", tipos.get(i).getTam());
+                    tipo.addProperty("precio", tipos.get(i).getPrecio());
+                    array_tipos.add(tipo);
+                }
+                pizza.add("tipos", array_tipos);
+                array_pizza.add(pizza);
+            }
+            salida.add("lista", array_pizza);
+
+            out.println(salida);
+        }catch(Exception ex)
+        {
+            System.err.printf("Problema tabla: %s",ex.getMessage());
         }
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
 
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
 
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
     @Override
     public String getServletInfo() {
         return "Short description";

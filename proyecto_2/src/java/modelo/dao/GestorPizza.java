@@ -34,7 +34,6 @@ public class GestorPizza implements Serializable {
         return instancia;
     }
 
-   
     // <editor-fold defaultstate="collapsed" desc="métodos">
     public boolean CreatePizza(Pizza newPizza) {
         boolean success = false;
@@ -57,7 +56,7 @@ public class GestorPizza implements Serializable {
         return success;
     }
 
-    public List<Pizza> ReadPizza(){
+    public List<Pizza> ReadPizza() {
         List<Pizza> pizzas = new ArrayList<>();
         try {
             Connection cnx = bd.obtenerConexion();
@@ -65,6 +64,7 @@ public class GestorPizza implements Serializable {
             ResultSet rs = stm.executeQuery(IMEC_Pizza.READ.obtenerComando());
             while (rs.next()) {
                 Pizza register = new Pizza(
+                        rs.getInt("item_id"),
                         rs.getString("item_name"),
                         rs.getString("desc")
                 );
@@ -167,20 +167,23 @@ public class GestorPizza implements Serializable {
         }
         return success;
     }
-   public List<TipoPizza> readType(int idPizza) throws SQLException {
+
+    public List<TipoPizza> readType(int idPizza) {
         List<TipoPizza> tipoPizzas = new ArrayList<>();
         try {
             Connection cnx = bd.obtenerConexion();
-            Statement stm = cnx.createStatement();
-            ResultSet rs = stm.executeQuery(IMEC_TipoPizza.READ.obtenerComando());
-            while (rs.next()) {
-                TipoPizza register = new TipoPizza (
-                        rs.getInt("item_id"),
-                        rs.getString("option_name"),
-                        rs.getFloat("price")
-                      
-                );
-                tipoPizzas.add(register);
+            try (PreparedStatement stm = cnx.prepareStatement(IMEC_TipoPizza.READ.obtenerComando())) {
+                stm.clearParameters();
+                stm.setInt(1, idPizza);
+                ResultSet rs = stm.executeQuery();
+                while (rs.next()) {
+                    TipoPizza register = new TipoPizza(
+                            rs.getInt("item_id"),
+                            rs.getString("option_name"),
+                            rs.getFloat("price")
+                    );
+                    tipoPizzas.add(register);
+                }
             }
         } catch (SQLException ex) {
             System.err.printf("Excepción: '%s'%n", ex.getMessage());
@@ -200,7 +203,7 @@ public class GestorPizza implements Serializable {
                 stm.clearParameters();
                 stm.setInt(1, newType.getId());
                 stm.setString(2, newType.getTam());
-                stm.setFloat(3,newType.getPrecio());
+                stm.setFloat(3, newType.getPrecio());
                 stm.setInt(4, id);
                 updateRegisters = stm.executeUpdate();
                 success = updateRegisters == 1;
@@ -245,8 +248,8 @@ public class GestorPizza implements Serializable {
                 if (rs.next()) {
                     Type = new TipoPizza(
                             rs.getInt("item_id"),
-                        rs.getString("option_name"),
-                        rs.getFloat("price")
+                            rs.getString("option_name"),
+                            rs.getFloat("price")
                     );
                 }
             }
@@ -259,7 +262,7 @@ public class GestorPizza implements Serializable {
         return Type;
     }
     //FALTA CRUD EXTRAS
-          // </editor-fold>
+    // </editor-fold>
 
     // <editor-fold defaultstate="collapsed" desc="atributos BD">
     private static GestorPizza instancia = null;

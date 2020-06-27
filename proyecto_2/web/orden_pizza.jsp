@@ -12,9 +12,10 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="icon" type="image/png" href="images/fav-pizza.png"/>
         <script src="JavaScript/script.js" type="text/javascript"></script>
+        <script src="JavaScript/scriptTabla.js" type="text/javascript"></script>
         <title>Ordenar pizza</title>
     </head>
-    <body>
+    <body onload = 'solicitarDatos()'>
        <div id='wrapper'>
             <h1>Ordenar pizza</h1>
             <div id='barra-nav' class='barra-nav'>
