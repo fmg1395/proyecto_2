@@ -123,7 +123,7 @@ public class GestorUsuarios implements Serializable {
         return success;
     }
 
-    public Usuario QueryUser(int id) throws SQLException {
+    public Usuario QueryUser(int id){
         Usuario user = null;
         try {
             Connection cnx = bd.obtenerConexion();

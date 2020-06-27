@@ -6,40 +6,33 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Enumeration;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modelo.Pizza;
 import modelo.Usuario;
 import modelo.dao.GestorUsuarios;
 
-/**
- *
- * @author frank
- */
-@WebServlet(name = "servicio_login", urlPatterns = {"/servicio_login"})
-@MultipartConfig
-public class servicio_login extends HttpServlet {
+@WebServlet(name = "servicio_pass", urlPatterns = {"/servicio_pass"})
+public class servicio_pass extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("application/json;charset=UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-
             JsonObject r = new JsonObject();
             Enumeration<String> p = request.getParameterNames();
             String n = p.nextElement();
-            
+
             Usuario usr = new Gson().fromJson(request.getParameter(n), Usuario.class);
-            Usuario usr2 = new GestorUsuarios().QueryUser(Integer.parseInt(usr.getCedula()));
-            
-            if (usr2.getPass().equals(usr.getPass())) {
+
+            boolean update = new GestorUsuarios().updateUser(usr);
+
+            if (update) {
                 r.addProperty("respuesta", "inicio.jsp");
                 out.println(r.toString());
             } else {
-                r.addProperty("respuesta", "index.jsp");
+                r.addProperty("respuesta", "cambio_pass.jsp");
                 out.println(r.toString());
             }
 
