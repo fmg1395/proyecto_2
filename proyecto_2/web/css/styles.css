@@ -130,6 +130,7 @@ input[type=submit] {
 #cuerpo{
     background: rgba(255,255,255,0.5);
     height: 600px;
+  text-align: center;
 }
 .tablaGeneral{
      background: white;
@@ -266,4 +267,10 @@ button{
 button:hover{
   background-color: red;
   color:black
+}
+#cuerpo span{
+  font-size: 20px;
+}
+#cuerpo label{
+    font-size: 20px;
 }
