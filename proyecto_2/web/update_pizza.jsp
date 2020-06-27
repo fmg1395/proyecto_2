@@ -30,7 +30,7 @@
                 <form id="form_registro" accept-charset="UTF-8" onsubmit='return modificarPizza()'>
                     <div class="row">
                         <div class="col-25">
-                            <label>Id de la pizza a modificar: </label>
+                            <label>Id de la pizza: </label>
                         </div>
                         <div class="col-75">
                             <input type='number' id='upd_id_pizza' name='upd_id' placeholder='Ingrese el id' autofocus>

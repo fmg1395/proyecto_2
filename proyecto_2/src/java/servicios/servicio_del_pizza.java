@@ -28,23 +28,25 @@ import modelo.dao.GestorPizza;
  */
 @WebServlet(name = "servicio_del_pizza", urlPatterns = {"/servicio_del_pizza"})
 @MultipartConfig
-public class servicio_del_pizza extends HttpServlet{
-    
+public class servicio_del_pizza extends HttpServlet {
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException {
         response.setContentType("application/json;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            
+
             JsonObject r = new JsonObject();
             Enumeration<String> p = request.getParameterNames();
             String n = p.nextElement();
-            
-             Pizza pizza = new Gson().fromJson(request.getParameter(n), Pizza.class);
-             
-             boolean insert = new GestorPizza().deletePizza(pizza.getId());
-            
-            r.addProperty("respuesta", insert);
-            out.println(r.toString());
+
+            Pizza pizza = new Gson().fromJson(request.getParameter(n), Pizza.class);
+
+            boolean insert = new GestorPizza().deletePizza(pizza.getId());
+
+            if (insert) {
+                r.addProperty("respuesta", "inicio.jsp");
+                out.println(r.toString());
+            }
         }
     }
 

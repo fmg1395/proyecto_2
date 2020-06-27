@@ -102,6 +102,7 @@ public class GestorPizza implements Serializable {
     }
 
     public boolean deletePizza(int id) throws SQLException {
+        this.deleteType(id);
         boolean success = false;
         int updateRegisters = 0;
         try {

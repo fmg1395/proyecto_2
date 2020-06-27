@@ -8,6 +8,7 @@ function captura_login()
     };
     var usuario = new FormData();
     usuario.append('usuario', JSON.stringify(dato));
+    console.log('usuario');
     console.log(`Credenciales son usr: ${usr} pass: ${pass}`);
     enviarDatos('servicio_login', usuario, redireccionar);
     return false;
@@ -62,9 +63,7 @@ function borrarPizza()
     };
     let datos=new FormData();
     datos.append('pizza',JSON.stringify(obj));
-    enviarDatos('servicio_del_pizza',JSON.stringify(obj),(res)=>{
-        console.log(res);
-    });
+    enviarDatos('servicio_del_pizza',datos,redireccionar);
     return false;
 }
 function modificarPizza()
@@ -79,9 +78,8 @@ function modificarPizza()
     };
     let datos=new FormData();
     datos.append('pizza',JSON.stringify(obj));
-    enviarDatos('servicio_upd_pizza',JSON.stringify(obj),(res)=>{
-        console.log(res);
-    });
+    console.log(`Credenciales son id: ${id} name: ${name}, desc: ${desc}`);
+    enviarDatos('servicio_upd_pizza',datos,redireccionar);
     return false;
 }
 function enviarDatos(servicio, datos, callback)

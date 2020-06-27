@@ -84,3 +84,10 @@ insert into `pizzeria`.`items` (`item_name`,`desc`) VALUES
 insert into `pizzeria`.`item_options` (`item_id`,`option_name`
 ,`price`) VALUES (1,'personal',2700),(1,'grande',4000),
 (1,'familiar',5700);
+insert into `pizzeria`.`usuario` (`cedula`,`nombre`,
+  `apellido`,
+  `direccion`,
+  `telefono` ,
+  `contraseña`,
+  `rol`) VALUES('117570784','Jasson','Nuñez','Santa Bárbara',
+  '85223412','123','A');

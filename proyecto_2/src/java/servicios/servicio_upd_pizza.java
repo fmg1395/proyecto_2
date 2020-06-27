@@ -26,7 +26,7 @@ import modelo.dao.GestorPizza;
  *
  * @author Kike
  */
-@WebServlet(name = "servicio_upd_pizza", urlPatterns = {"/servicio_del_pizza"})
+@WebServlet(name = "servicio_upd_pizza", urlPatterns = {"/servicio_upd_pizza"})
 @MultipartConfig
 public class servicio_upd_pizza extends HttpServlet {
        
@@ -42,9 +42,10 @@ public class servicio_upd_pizza extends HttpServlet {
              Pizza pizza = new Gson().fromJson(request.getParameter(n), Pizza.class);
              
              boolean insert = new GestorPizza().updatePizza(pizza,pizza.getId());
+            if(insert)
+            { r.addProperty("respuesta", "inicio.jsp");
+                out.println(r.toString());}
             
-            r.addProperty("respuesta", insert);
-            out.println(r.toString());
         }
     }
 
