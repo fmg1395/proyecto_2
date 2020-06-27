@@ -82,15 +82,19 @@ public class GestorUsuarios implements Serializable {
         return users;
     }
 
-    public boolean updateUser(String pass, int id) throws SQLException {
+    public boolean updateUser(Usuario user){
         boolean success = false;
         int updateRegisters = 0;
         try {
             Connection cnx = bd.obtenerConexion();
             try (PreparedStatement stm = cnx.prepareStatement(IMEC_Usuario.UPDATE.obtenerComando())) {
                 stm.clearParameters();
-                stm.setString(1, pass);
-                stm.setInt(2, id);
+                stm.setString(1, user.getNombre());
+                stm.setString(2, user.getApellido());
+                stm.setString(3, user.getDireccion());
+                stm.setString(4, user.getTelefono());
+                stm.setString(5, user.getPass());
+                stm.setString(6,user.getCedula());
                 updateRegisters = stm.executeUpdate();
                 success = updateRegisters == 1;
             }
@@ -123,13 +127,14 @@ public class GestorUsuarios implements Serializable {
         return success;
     }
 
-    public Usuario QueryUser(int id){
+    public Usuario QueryUser(String id){
+
         Usuario user = null;
         try {
             Connection cnx = bd.obtenerConexion();
             try (PreparedStatement stm = cnx.prepareStatement(IMEC_Usuario.QUERY.obtenerComando())) {
                 stm.clearParameters();
-                stm.setInt(1, id);
+                stm.setString(1, id);
                 ResultSet rs = stm.executeQuery();
                 if (rs.next()) {
                     user = new Usuario(
@@ -138,7 +143,8 @@ public class GestorUsuarios implements Serializable {
                         rs.getString("apellido"),
                         rs.getString("direccion"),
                         rs.getString("telefono"),
-                        rs.getString("contraseña")
+                        rs.getString("contraseña"),
+                        rs.getString("rol")
                     );
                 }
             }

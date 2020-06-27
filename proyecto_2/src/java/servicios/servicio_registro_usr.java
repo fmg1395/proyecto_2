@@ -28,6 +28,7 @@ public class servicio_registro_usr extends HttpServlet {
             String n = p.nextElement();
 
             Usuario usr = new Gson().fromJson(request.getParameter(n), Usuario.class);
+            usr.setTipo('C');
 
             boolean insert = new GestorUsuarios().CreateUser(usr);
             if (insert) {

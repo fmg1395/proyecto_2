@@ -33,7 +33,7 @@ public class servicio_login extends HttpServlet {
             String n = p.nextElement();
             
             Usuario usr = new Gson().fromJson(request.getParameter(n), Usuario.class);
-            Usuario usr2 = new GestorUsuarios().QueryUser(Integer.parseInt(usr.getCedula()));
+            Usuario usr2 = new GestorUsuarios().QueryUser(usr.getCedula());
             
             if (usr2.getPass().equals(usr.getPass())) {
                 r.addProperty("respuesta", "inicio.jsp");
