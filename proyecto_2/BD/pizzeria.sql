@@ -1,3 +1,4 @@
+SET GLOBAL time_zone='-6:00';
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
@@ -73,8 +74,7 @@ DROP TABLE IF EXISTS `pedido`;
 -- Table `pizzeria`.`pedido`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `pizzeria`.`pedido`(
-`ticket_id` int not null auto_increment,
-`estado` varchar(100) not null,
+`ticket_id` varchar(8) not null,
 PRIMARY KEY(`ticket_id`)
 )
 ENGINE = InnoDB;

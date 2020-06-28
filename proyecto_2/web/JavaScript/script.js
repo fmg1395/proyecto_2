@@ -1,3 +1,4 @@
+var seconds=20;
 function captura_login()
 {
     var usr = document.getElementById('usr_login').value;
@@ -66,6 +67,20 @@ function borrarPizza()
     enviarDatos('servicio_del_pizza',datos,redireccionar);
     return false;
 }
+ function sleep(milliseconds) {
+ var start = new Date().getTime();
+ for (var i = 0; i < 1e7; i++) {
+  if ((new Date().getTime() - start) > milliseconds) {
+   break;
+  }
+ }
+}
+
+function codigoUnico(respuesta){
+     alert(JSON.stringify(respuesta));
+      sleep(5000);
+      window.location.href ='inicio.jsp';
+}
 function modificarPizza()
 {
     let id=document.getElementById('upd_id_pizza').value;
@@ -82,6 +97,44 @@ function modificarPizza()
     enviarDatos('servicio_upd_pizza',datos,redireccionar);
     return false;
 }
+
+ function countdown(){
+// Update the count down every 1 second
+ let datos=new FormData();
+enviarDatos('servicio_tiquete',datos,codigoUnico);
+ var x = setInterval(disminuye(), 1000);
+}
+function disminuye()
+{    var countDownDate = new Date(Date.now() + 20000).getTime();
+
+  var now = new Date().getTime();
+
+  var distance = countDownDate - now;
+
+   seconds = Math.floor((distance % (1000 * 60)) / 1000);
+   
+  console.log(`${seconds} seconds`);
+ 
+  if (seconds=== 0) 
+  {
+      console.log('libre soy');
+    } 
+}
+function verificar()
+{
+    if(Math.round(Math.random()))
+    {
+        alert('El pedido está siendo preparado');
+         window.location.href ='inicio.jsp';
+
+    }
+    else
+    {
+        alert('El pedido se encuentra en ruta de entrega');
+         window.location.href ='inicio.jsp';
+
+    }
+}
 function enviarDatos(servicio, datos, callback)
 {
     fetch(servicio, {
@@ -91,7 +144,6 @@ function enviarDatos(servicio, datos, callback)
         return result.json();
     }).then(callback);
 }
-
 function redireccionar(url)
 {
     window.location.href = url.respuesta;

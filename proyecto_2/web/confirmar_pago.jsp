@@ -23,7 +23,7 @@
                     <li><a href='index.jsp'>Inicio</a></li>
                     <li><a href='registro.jsp'>Registrarse</a></li>
                     <li><a href='registrar_pizza.jsp'>Registrar Pizza</a></li>
-                    <li><a href='#About'>Ordenar pizza</a></li>
+                     <li><a href='rastreo.jsp'>Rastrear orden</a></li>
                 </ul>
             </div>
             <div id="cuerpo">
@@ -34,7 +34,7 @@
                 <label for="pago">Efectivo</label><br>
                  <input type="radio" id="pago" name="modoPago" value="tarjeta">
                 <label for="pago">Tarjeta</label><br>
-                <button type="button" class="pagado" onclick="confirmarPago()"><span>Pedir</span></button>
+                <button type="button" class="pagado" onclick="countdown()"><span>Pedir</span></button>
         </div>
     </body>
 </html>

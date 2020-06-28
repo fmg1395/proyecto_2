@@ -23,7 +23,8 @@
                     <li><a href='index.jsp'>Inicio</a></li>
                     <li><a href='registro.jsp'>Registrarse</a></li>
                     <li><a href='registrar_pizza.jsp'>Registrar Pizza</a></li>
-                    <li><a href='#About'>Ordenar pizza</a></li>
+                    <li><a href='rastreo.jsp'>Rastrear orden</a></li>
+                    
                 </ul>
             </div>
             <div id="cuerpo">
