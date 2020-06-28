@@ -1,3 +1,10 @@
+/*<%-- 
+    EIF209 - Programación 4 - Proyecto #2
+    Junio 2020
+    Autores:
+    - 117490582 Enrique Solís Aleman 
+    - 116050901 Frank Martínez Galo
+--%>*/
 package servicios;
 
 import com.google.gson.JsonArray;
@@ -15,10 +22,6 @@ import modelo.Pizza;
 import modelo.TipoPizza;
 import modelo.dao.GestorPizza;
 
-/**
- *
- * @author frank
- */
 @WebServlet(name = "servicio_tabla", urlPatterns = {"/servicio_tabla"})
 @MultipartConfig
 public class servicio_tabla extends HttpServlet {

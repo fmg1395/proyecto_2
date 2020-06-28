@@ -5,6 +5,7 @@
     - 117490582 Enrique Solís Aleman 
     - 116050901 Frank Martínez Galo
 --%>*/
+
 package servicios;
 
 import com.google.gson.Gson;
@@ -21,29 +22,32 @@ import javax.servlet.http.HttpServletResponse;
 import modelo.Usuario;
 import modelo.dao.GestorUsuarios;
 
-@WebServlet(name = "servicio_registro_usr", urlPatterns = {"/servicio_registro_usr"})
+@WebServlet(name = "servicio_update_usr", urlPatterns = {"/servicio_update_usr"})
 @MultipartConfig
-public class servicio_registro_usr extends HttpServlet {
+public class servicio_update_usr extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("application/json;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
 
+            GestorUsuarios gestor = new GestorUsuarios();
             JsonObject r = new JsonObject();
             Enumeration<String> p = request.getParameterNames();
             String n = p.nextElement();
 
             Usuario usr = new Gson().fromJson(request.getParameter(n), Usuario.class);
-            usr.setTipo('C');
+        
+            boolean update = gestor.updateUser(usr);
 
-            boolean insert = new GestorUsuarios().CreateUser(usr);
-            if (insert) {
+            if (update) {
                 r.addProperty("respuesta", "inicio.jsp");
+                out.println(r.toString());
             } else {
-                r.addProperty("respuesta", insert);
+                r.addProperty("respuesta", "cambio_pass.jsp");
+                out.println(r.toString());
             }
-            out.println(r.toString());
+
         }
     }
 

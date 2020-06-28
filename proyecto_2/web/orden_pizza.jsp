@@ -1,7 +1,9 @@
 <%-- 
-    Document   : orden_pizza
-    Created on : 26 jun. 2020, 17:54:04
-    Author     : Kike
+    EIF209 - Programación 4 - Proyecto #2
+    Junio 2020
+    Autores:
+    - 117490582 Enrique Solís Aleman 
+    - 116050901 Frank Martínez Galo
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

@@ -1,3 +1,11 @@
+/*<%-- 
+    EIF209 - Programación 4 - Proyecto #2
+    Junio 2020
+    Autores:
+    - 117490582 Enrique Solís Aleman 
+    - 116050901 Frank Martínez Galo
+--%>*/
+
 package servicios;
 
 import com.google.gson.Gson;
@@ -11,14 +19,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modelo.Pizza;
 import modelo.Usuario;
 import modelo.dao.GestorUsuarios;
 
-/**
- *
- * @author frank
- */
 @WebServlet(name = "servicio_login", urlPatterns = {"/servicio_login"})
 @MultipartConfig
 public class servicio_login extends HttpServlet {

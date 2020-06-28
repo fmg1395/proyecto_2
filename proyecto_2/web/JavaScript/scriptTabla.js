@@ -1,3 +1,13 @@
+/*
+ * <%-- 
+    EIF209 - Programación 4 - Proyecto #2
+    Junio 2020
+    Autores:
+    - 117490582 Enrique Solís Aleman 
+    - 116050901 Frank Martínez Galo
+--%>
+ */
+
 var orden_pizza;
 
 
