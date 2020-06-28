@@ -26,7 +26,7 @@ import modelo.dao.GestorPizza;
  *
  * @author Kike
  */
-@WebServlet(name = "servicio_upd_pizza", urlPatterns = {"/servicio_del_pizza"})
+@WebServlet(name = "servicio_upd_pizza", urlPatterns = {"/servicio_upd_pizza"})
 @MultipartConfig
 public class servicio_upd_pizza extends HttpServlet {
        
