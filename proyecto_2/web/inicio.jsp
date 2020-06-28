@@ -23,6 +23,7 @@
                     <li><a href='index.jsp'>Inicio</a></li>
                     <li><a href='registro.jsp'>Registrarse</a></li>
                     <li><a href='registrar_pizza.jsp'>Gestión Pizza</a></li>
+                    <li><a href='registrar_acomp.jsp'>Gestion Acompañamientos</a></li>
                     <li><a href='orden_pizza.jsp'>Ordenar pizza</a></li>
                     <li><a href='rastreo.jsp'>Rastrear orden</a></li>
                 </ul>

@@ -35,8 +35,11 @@ public class GestorPizza implements Serializable {
     }
 
     // <editor-fold defaultstate="collapsed" desc="métodos">
-    public boolean CreatePizza(Pizza newPizza) {
+    public boolean CreatePizza(Pizza newPizza) throws SQLException {
         boolean success = false;
+       this.CreatePizzaType(new TipoPizza(newPizza.getId(),"personal",2700f));
+       this.CreatePizzaType(new TipoPizza(newPizza.getId(),"grande",4000f));
+       this.CreatePizzaType(new TipoPizza(newPizza.getId(),"familiar",5700f));
         int updateRegisters = 0;
         try {
             Connection cnx = bd.obtenerConexion();

@@ -13,6 +13,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="icon" type="image/png" href="images/fav-pizza.png"/>
         <script src="JavaScript/script.js" type="text/javascript"></script>
+        <script src="JavaScript/scriptTabla.js" type="text/javascript"></script>
         <title>Ordenar pizza</title>
     </head>
     <body onload = 'solicitarDatosAcomp()'>

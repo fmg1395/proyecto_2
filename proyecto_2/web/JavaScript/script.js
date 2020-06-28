@@ -51,9 +51,20 @@ function capturarPizza()
     let datos = new FormData();
     datos.append('pizza', JSON.stringify(obj));
 
-    enviarDatos('servicio_reg_pizza', JSON.stringify(obj), (res) => {
-        console.log(res);
-    });
+    enviarDatos('servicio_reg_pizza',datos,redireccionar);
+    return false;
+}
+function capturarAcomp(){
+     let nombre = document.getElementById('reg_name_acomp').value;
+    let precio = document.getElementById('reg_pre_acomp').value;
+    let obj = {
+        'nombre': nombre,
+        'precio': precio
+    };
+    let datos = new FormData();
+    datos.append('extra', JSON.stringify(obj));
+
+    enviarDatos('servicio_reg_acomp',datos,redireccionar);
     return false;
 }
 function borrarPizza()
@@ -67,6 +78,18 @@ function borrarPizza()
     enviarDatos('servicio_del_pizza',datos,redireccionar);
     return false;
 }
+function borrarAcomp()
+{
+    let id=document.getElementById('del_name_id').value;
+    let obj={
+        'id':id
+    };
+    let datos=new FormData();
+    datos.append('extra',JSON.stringify(obj));
+    enviarDatos('servicio_del_acomp',datos,redireccionar);
+    return false; 
+}
+
  function sleep(milliseconds) {
  var start = new Date().getTime();
  for (var i = 0; i < 1e7; i++) {
@@ -75,14 +98,29 @@ function borrarPizza()
   }
  }
 }
-
 function codigoUnico(respuesta){
      alert(JSON.stringify(respuesta));
       sleep(5000);
       window.location.href ='inicio.jsp';
 }
-function modificarPizza()
+
+function modificarAcomp()
 {
+    let id=document.getElementById('upd_id_acomp').value;
+    let name=document.getElementById('upd_name_acomp').value;
+    let precio=document.getElementById('upd_pre_acomp').value;
+    let obj={
+        'id':id,
+        'nombre': name,
+        'precio': precio
+    };
+    let datos=new FormData();
+    datos.append('extra',JSON.stringify(obj));
+    console.log(`Credenciales son id: ${id} name: ${name}, precio: ${precio}`);
+    enviarDatos('servicio_upd_acomp',datos,redireccionar);
+    return false;
+}
+function modificarPizza(){
     let id=document.getElementById('upd_id_pizza').value;
     let name=document.getElementById('upd_name_pizza').value;
     let desc=document.getElementById('upd_des_pizza').value;
@@ -95,9 +133,8 @@ function modificarPizza()
     datos.append('pizza',JSON.stringify(obj));
     console.log(`Credenciales son id: ${id} name: ${name}, desc: ${desc}`);
     enviarDatos('servicio_upd_pizza',datos,redireccionar);
-    return false;
+    return false; 
 }
-
  function countdown(){
 // Update the count down every 1 second
  let datos=new FormData();

@@ -9,11 +9,12 @@ function solicitarDatos()
 }
 function solicitarDatosAcomp()
 {
+    console.log(JSON.stringify(orden_pizza));
      var datos = {'tabla': 'tabla'};
     enviarDatos('servicio_tabla_acomp', JSON.stringify(datos), crearTablaExtras);
     return false;
 }
-function crearTablaExtras(){
+function crearTablaExtras(datos){
      let refTabla = document.getElementById('cuerpoTabla');
     let lista = datos.lista;
 
@@ -37,9 +38,22 @@ function crearTablaExtras(){
         precio.setAttribute('id', `precio_${i}`);
         extra.innerHTML = lista[i].nombre;
         cantidad.appendChild(cant);
-        precio.innerHTML = drop.options[0].value;
+        precio.innerHTML = lista[i].precio;
         total.innerHTML = 0;
     }
+}
+function actualizarGlobales(){
+    if(localStorage.getItem("pizza")!=null&&localStorage.getItem("extras")!=null)
+    {
+        orden_pizza =localStorage.getItem("pizza");
+        orden_acomp=localStorage.getItem("extras");
+    }
+}
+function pedidoPizza(){
+alert(JSON.stringify(orden_pizza));
+}
+function pedidoExtra(){
+document.getElementById("pe").innerHTML =JSON.stringify(orden_acomp);
 }
 function crearTabla(datos) {
 
@@ -152,7 +166,9 @@ function recuperarDatosExtras(){
         'pedido':lista_pedido,
         'total':total  
     };
-    
+    localStorage.setItem("extras", JSON.stringify(orden_acomp));
+    siguienteVentana('confirmar_pago.jsp');
+
     return orden_acomp;
 }
 function recuperarDatosPizza()
@@ -179,6 +195,7 @@ function recuperarDatosPizza()
         'pedido':lista_pedido,
         'total':total  
     };
+    localStorage.setItem("pizza", JSON.stringify(orden_pizza));
     siguienteVentana('orden_acompañamientos.jsp');
     return orden_pizza;
 }

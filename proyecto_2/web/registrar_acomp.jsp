@@ -1,3 +1,9 @@
+<%-- 
+    Document   : registrar_acomp
+    Created on : 27 jun. 2020, 23:36:11
+    Author     : Kike
+--%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -6,41 +12,41 @@
         <link href="css/styles.css" rel="stylesheet" type="text/css"/>
         <script src="JavaScript/script.js" type="text/javascript"></script>
         <link rel="icon" type="image/png" href="images/fav-pizza.png"/>
-        <title>Registrar Pizza</title>
+        <title>Registrar Acompañamiento</title>
     </head>
     <body>
         <div id="wrapper">
             <div id='barra-nav' class='barra-nav'>
                 <ul>
-                     <li><a href='inicio.jsp'>Inicio</a></li>
-                    <li><a href='update_pizza.jsp'>Modificar pizza</a></li>
-                   <li><a href='delete_pizza.jsp'>Eliminar pizza</a></li>
-
+                     <li><a href='index.jsp'>Inicio</a></li>
+                    <li><a href='update_acomp.jsp'>Modificar acompañamiento</a></li>
+                   <li><a href='delete_acomp.jsp'>Eliminar acompañamiento</a></li>
+                    <li><a href='registrar_pizza.jsp'>Gestión Pizza</a></li>
                 </ul>
             </div>
             <div id = 'contenedor-form' class= 'contenedor-form'>
                 <div class='titulo'>
-                    <label for="fname"><b>Registro de Nueva Pizza</b></label>
+                    <label for="fname"><b>Registro de Nuevo Acomp.</b></label>
                 </div>
-                <form id="form_registro" accept-charset="UTF-8" onsubmit='return capturarPizza()'>
+                <form id="form_registro" accept-charset="UTF-8" onsubmit='return capturarAcomp()'>
                     <div class="row">
                         <div class="col-25">
-                            <label>Nombre de la pizza: </label>
+                            <label>Nombre del Acomp.: </label>
                         </div>
                         <div class="col-75">
-                            <input type='text' id='reg_name_pizza' name='reg_name' placeholder='Ingrese nombre' autofocus>
+                            <input type='text' id='reg_name_acomp' name='reg_name' placeholder='Ingrese nombre' autofocus>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-25">
-                            <label>Descripción </label>
+                            <label>Precio </label>
                         </div>
                         <div class="col-75">
-                            <input type='text' id='reg_des_pizza' name='reg_des_pizza' placeholder='Ingrese una descripción'>
+                            <input type='number' id='reg_pre_acomp' name='reg_precio_' placeholder='Ingrese un precio'>
                         </div>
                     </div>
                     <div class="row">
-                        <input type='submit' id='reg_btn' name='reg_btn' value='Registrarse'>
+                        <input type='submit' id='reg_btn' name='reg_btn' value='Registrar'>
                     </div>
                 </form>
             </div>

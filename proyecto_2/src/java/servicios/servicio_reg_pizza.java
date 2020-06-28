@@ -40,8 +40,9 @@ public class servicio_reg_pizza extends HttpServlet {
              
              boolean insert = new GestorPizza().CreatePizza(pizza);
             
-            r.addProperty("respuesta", insert);
-            out.println(r.toString());
+            if(insert)
+            { r.addProperty("respuesta", "inicio.jsp");
+                out.println(r.toString());}
         }
     }
 
