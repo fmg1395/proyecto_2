@@ -1,7 +1,9 @@
 <%-- 
-    Document   : registrar_acomp
-    Created on : 27 jun. 2020, 23:36:11
-    Author     : Kike
+    EIF209 - Programación 4 - Proyecto #2
+    Junio 2020
+    Autores:
+    - 117490582 Enrique Solís Aleman 
+    - 116050901 Frank Martínez Galo
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -18,9 +20,9 @@
         <div id="wrapper">
             <div id='barra-nav' class='barra-nav'>
                 <ul>
-                     <li><a href='index.jsp'>Inicio</a></li>
-                    <li><a href='update_acomp.jsp'>Modificar acompañamiento</a></li>
-                   <li><a href='delete_acomp.jsp'>Eliminar acompañamiento</a></li>
+                     <li><a href='inicio.jsp'>Inicio</a></li>
+                    <li><a href='registrar_acomp.jsp'>Crear acompañamiento</a></li>
+                   <li><a href='update_acomp.jsp'>Modificar acompañamiento</a></li>
                     <li><a href='registrar_pizza.jsp'>Gestión Pizza</a></li>
                 </ul>
             </div>

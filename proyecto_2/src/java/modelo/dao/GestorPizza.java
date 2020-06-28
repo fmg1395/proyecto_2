@@ -1,8 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/*<%-- 
+    EIF209 - Programación 4 - Proyecto #2
+    Junio 2020
+    Autores:
+    - 117490582 Enrique Solís Aleman 
+    - 116050901 Frank Martínez Galo
+--%>*/
 package modelo.dao;
 
 import datos.BaseDatos;
@@ -37,9 +39,10 @@ public class GestorPizza implements Serializable {
     // <editor-fold defaultstate="collapsed" desc="métodos">
     public boolean CreatePizza(Pizza newPizza) throws SQLException {
         boolean success = false;
-       this.CreatePizzaType(new TipoPizza(newPizza.getId(),"personal",2700f));
-       this.CreatePizzaType(new TipoPizza(newPizza.getId(),"grande",4000f));
-       this.CreatePizzaType(new TipoPizza(newPizza.getId(),"familiar",5700f));
+        int cont=this.ReadPizza().size()+1;
+       this.CreatePizzaType(new TipoPizza(cont,"personal",2700f));
+       this.CreatePizzaType(new TipoPizza(cont,"grande",4000f));
+       this.CreatePizzaType(new TipoPizza(cont,"familiar",5700f));
         int updateRegisters = 0;
         try {
             Connection cnx = bd.obtenerConexion();

@@ -1,7 +1,9 @@
 <%-- 
-    Document   : index
-    Created on : 16/06/2020, 04:21:01 PM
-    Author     : frank
+    EIF209 - Programación 4 - Proyecto #2
+    Junio 2020
+    Autores:
+    - 117490582 Enrique Solís Aleman 
+    - 116050901 Frank Martínez Galo
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

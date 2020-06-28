@@ -1,14 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/*<%-- 
+    EIF209 - Programación 4 - Proyecto #2
+    Junio 2020
+    Autores:
+    - 117490582 Enrique Solís Aleman 
+    - 116050901 Frank Martínez Galo
+--%>*/
 package modelo.dao;
 
-/**
- *
- * @author Kike
- */
 public enum IMEC_TipoPizza {
     INSERT("INSERT INTO `pizzeria`.`item_options`(`item_id`,`option_name`,`price`) values(?,?,?);"),
     READ("SELECT * from `pizzeria`.`item_options` where `item_id` = ?;"),

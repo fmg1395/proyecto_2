@@ -5,45 +5,49 @@
     - 117490582 Enrique Solís Aleman 
     - 116050901 Frank Martínez Galo
 --%>*/
+
 package servicios;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
 import java.util.Enumeration;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modelo.Pizza;
-import modelo.dao.GestorPizza;
+import modelo.Usuario;
+import modelo.dao.GestorUsuarios;
 
-@WebServlet(name = "servicio_reg_pizza", urlPatterns = {"/servicio_reg_pizza"})
+@WebServlet(name = "servicio_update_usr", urlPatterns = {"/servicio_update_usr"})
 @MultipartConfig
-public class servicio_reg_pizza extends HttpServlet {
+public class servicio_update_usr extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, SQLException {
+            throws ServletException, IOException {
         response.setContentType("application/json;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            
+
+            GestorUsuarios gestor = new GestorUsuarios();
             JsonObject r = new JsonObject();
             Enumeration<String> p = request.getParameterNames();
             String n = p.nextElement();
-            
-             Pizza pizza = new Gson().fromJson(request.getParameter(n), Pizza.class);
-             
-             boolean insert = new GestorPizza().CreatePizza(pizza);
-            
-            if(insert)
-            { r.addProperty("respuesta", "inicio.jsp");
-                out.println(r.toString());}
+
+            Usuario usr = new Gson().fromJson(request.getParameter(n), Usuario.class);
+        
+            boolean update = gestor.updateUser(usr);
+
+            if (update) {
+                r.addProperty("respuesta", "inicio.jsp");
+                out.println(r.toString());
+            } else {
+                r.addProperty("respuesta", "cambio_pass.jsp");
+                out.println(r.toString());
+            }
+
         }
     }
 
@@ -59,11 +63,7 @@ public class servicio_reg_pizza extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (SQLException ex) {
-            Logger.getLogger(servicio_reg_pizza.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**
@@ -77,11 +77,7 @@ public class servicio_reg_pizza extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (SQLException ex) {
-            Logger.getLogger(servicio_reg_pizza.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**

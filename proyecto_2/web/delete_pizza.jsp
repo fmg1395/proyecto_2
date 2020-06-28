@@ -1,7 +1,9 @@
 <%-- 
-    Document   : delete_pizza
-    Created on : 26 jun. 2020, 23:18:46
-    Author     : Kike
+    EIF209 - Programación 4 - Proyecto #2
+    Junio 2020
+    Autores:
+    - 117490582 Enrique Solís Aleman 
+    - 116050901 Frank Martínez Galo
 --%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -20,6 +22,7 @@
                     <li><a href='inicio.jsp'>Inicio</a></li>
                     <li><a href='registrar_pizza.jsp'>Registrar pizza</a></li>
                     <li><a href='update_pizza.jsp'>Modificar pizza</a></li>
+                    <li><a href='registrar_acomp.jsp'>Gestion Acompañamientos</a></li>
                 </ul>
             </div>
             <div id = 'contenedor-form' class= 'contenedor-form'>
