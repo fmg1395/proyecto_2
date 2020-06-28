@@ -60,15 +60,14 @@ function dropFunction(element)
 {
     let valor = element.options[element.selectedIndex].value;
     let indice = element.id.split('_')[1];
+    
     let celda = document.getElementById(`precio_${indice}`);
+    let total = document.getElementById(`total_${indice}`);
+    
+    let cantidad = document.getElementById(`input_${indice}`).value;
     celda.innerHTML = valor;
-    let prueba = document.getElementById(`input_${indice}`);
-    actualizar(prueba);
-}
-
-function actualizar(element)
-{
-    element.onchange();
+    total.innerHTML = valor*cantidad;
+    totalGeneral();
 }
 
 function updateTotal()
@@ -79,5 +78,19 @@ function updateTotal()
      let cantidad = event.target.value;
      
      total.innerHTML = precio*cantidad;
+     totalGeneral();
 }
 
+function totalGeneral()
+{
+    let tabla = document.getElementById('cuerpoTabla');
+    let total_general = document.getElementById('totalGeneral');
+    let total_final = 0;
+    
+    for(let i =0; i<tabla.rows.length;i++)
+    {
+        let precio = document.getElementById(`total_${i}`);
+        total_final += parseInt(precio.innerHTML,10);
+    }
+    total_general.innerHTML = total_final;
+}
