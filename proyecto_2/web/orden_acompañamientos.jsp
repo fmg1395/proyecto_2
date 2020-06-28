@@ -15,7 +15,7 @@
         <script src="JavaScript/script.js" type="text/javascript"></script>
         <title>Ordenar pizza</title>
     </head>
-    <body>
+    <body onload = 'solicitarDatosAcomp()'>
        <div id='wrapper'>
             <h1>Ordenar acompañamientos</h1>
             <div id='barra-nav' class='barra-nav'>

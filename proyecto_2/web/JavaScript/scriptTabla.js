@@ -1,5 +1,5 @@
 var orden_pizza;
-
+var orden_acomp;
 
 function solicitarDatos()
 {
@@ -7,7 +7,40 @@ function solicitarDatos()
     enviarDatos('servicio_tabla', JSON.stringify(datos), crearTabla);
     return false;
 }
+function solicitarDatosAcomp()
+{
+     var datos = {'tabla': 'tabla'};
+    enviarDatos('servicio_tabla_acomp', JSON.stringify(datos), crearTablaExtras);
+    return false;
+}
+function crearTablaExtras(){
+     let refTabla = document.getElementById('cuerpoTabla');
+    let lista = datos.lista;
 
+    for (let i = 0; i < lista.length; i++)
+    {
+        let row = refTabla.insertRow(-1);
+        let extra = row.insertCell(-1);
+        let precio = row.insertCell(-1);
+        let cantidad = row.insertCell(-1);
+        let total = row.insertCell(-1);
+        let drop = document.createElement('select');
+        total.setAttribute('id', `total_${i}`);
+        let cant = document.createElement('input');
+        cant.setAttribute('type', 'number');
+        cant.setAttribute('min', 0);
+        cant.setAttribute('value', 0);
+        cant.setAttribute('id', `input_${i}`);
+        cant.onchange = updateTotal;
+        drop.setAttribute('onchange', 'dropFunction(this)');
+        drop.setAttribute('id', `select_${i}`);
+        precio.setAttribute('id', `precio_${i}`);
+        extra.innerHTML = lista[i].nombre;
+        cantidad.appendChild(cant);
+        precio.innerHTML = drop.options[0].value;
+        total.innerHTML = 0;
+    }
+}
 function crearTabla(datos) {
 
     let refTabla = document.getElementById('cuerpoTabla');
@@ -96,7 +129,32 @@ function totalGeneral()
     }
     total_general.innerHTML = total_final;
 }
+function recuperarDatosExtras(){
+     let refTabla = document.getElementById('cuerpoTabla');
+    let size = refTabla.rows.length;
+    let celda_precio;
+    let lista_pedido = [];
+    for (let i = 0; i < size; i++)
+    {
+        celda_precio = document.getElementById(`total_${i}`);
 
+        let valor = parseInt(celda_precio.innerHTML,10);
+
+        if (valor !== 0)
+        {
+            lista_pedido.push(procesarFilaAcomp(refTabla.rows[i]));
+        } else {
+            console.log('indefinido');
+        }
+    }
+    let total = parseFloat(document.getElementById('totalGeneral').innerHTML);
+    orden_acomp = {
+        'pedido':lista_pedido,
+        'total':total  
+    };
+    
+    return orden_acomp;
+}
 function recuperarDatosPizza()
 {
     let refTabla = document.getElementById('cuerpoTabla');
@@ -121,7 +179,7 @@ function recuperarDatosPizza()
         'pedido':lista_pedido,
         'total':total  
     };
-    
+    siguienteVentana('orden_acompañamientos.jsp');
     return orden_pizza;
 }
 
@@ -140,4 +198,18 @@ function procesarFila(fila)
         'total':total
     };
     return resultado;
+}
+function procesarFilaAcomp(fila){
+    let extra=fila.childNodes[0].innerHTML;
+    let cantidad=parseInt(fila.childNodes[2].childNodes[0].value,10);
+    let total=parseFloat(fila.childNodes[3].innerHTML,10);
+    let resultado={
+        'extra':extra,
+        'cantidad':cantidad,
+        'total':total
+    };
+    return resultado;
+}
+function siguienteVentana(url){
+window.location.href = url;
 }
